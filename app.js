@@ -60,7 +60,7 @@ io.on('connection', socket => {
 	});
 });
 
-server.listen(process.env.PORT || 3000, process.env.IP || '0.0.0.0', function () {
+server.listen(process.env.PORT || 3000, process.env.IP, function () {
     var addr = server.address();
     console.log("Server on em http://", addr.address + ":" + addr.port);
 });
