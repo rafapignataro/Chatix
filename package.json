@@ -1,0 +1,22 @@
+{
+  "name": "chat-2.0",
+  "version": "1.0.0",
+  "description": "Second version of my chat.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "keywords": [
+    "Chat",
+    "Conversation",
+    "Social"
+  ],
+  "author": "Rafael Pignataro",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "socket.io": "^2.3.0"
+  }
+}

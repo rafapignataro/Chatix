@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat 2.0</title>
+    <link rel="stylesheet" href="css/Login.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+</head>
+<body>
+    <h1>Selecione um nome!</h1>
+    <form id="sendNameForm">
+        <input id="name" type="text" maxlength="12">
+        <button type="submit">ENTRAR</button>
+    </form>
+    <script type="text/javascript">
+        $('#sendNameForm').submit(function(event){
+            event.preventDefault();
+
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({name: $('#name').val()})
+            })
+            .then(data => {
+                window.location.href = '/chat';
+            })
+            .catch(err => console.error(err));
+        });
+    </script>
+</body>
+</html>

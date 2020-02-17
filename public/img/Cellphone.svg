@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="503.247" height="768.208" viewBox="0 0 503.247 768.208">
+  <g id="Celular" transform="matrix(0.978, 0.208, -0.208, 0.978, -804.329, -414.901)">
+    <rect id="Retângulo_3" data-name="Retângulo 3" width="364" height="708" rx="53" transform="translate(1017 208)"/>
+    <rect id="Retângulo_4" data-name="Retângulo 4" width="306" height="597" transform="translate(1046 251)" fill="#c264fe"/>
+    <circle id="Elipse_1" data-name="Elipse 1" cx="26.5" cy="26.5" r="26.5" transform="translate(1173 854)" fill="#131313"/>
+    <g id="Grupo_2" data-name="Grupo 2" transform="translate(9 -56)">
+      <rect id="Retângulo_5" data-name="Retângulo 5" width="113" height="36" transform="translate(1059 341)" fill="#ab4de6"/>
+      <rect id="Retângulo_6" data-name="Retângulo 6" width="113" height="36" transform="translate(1210 400)" fill="#fff"/>
+      <rect id="Retângulo_7" data-name="Retângulo 7" width="113" height="36" transform="translate(1059 467)" fill="#ab4de6"/>
+      <rect id="Retângulo_8" data-name="Retângulo 8" width="113" height="36" transform="translate(1059 512)" fill="#ab4de6"/>
+      <rect id="Retângulo_9" data-name="Retângulo 9" width="113" height="36" transform="translate(1210 561)" fill="#fff"/>
+      <rect id="Retângulo_10" data-name="Retângulo 10" width="113" height="36" transform="translate(1059 612)" fill="#ab4de6"/>
+      <rect id="Retângulo_11" data-name="Retângulo 11" width="113" height="36" transform="translate(1210 666)" fill="#fff"/>
+      <rect id="Retângulo_12" data-name="Retângulo 12" width="113" height="36" transform="translate(1210 710)" fill="#fff"/>
+      <rect id="Retângulo_13" data-name="Retângulo 13" width="113" height="36" transform="translate(1210 754)" fill="#fff"/>
+      <rect id="Retângulo_14" data-name="Retângulo 14" width="113" height="36" transform="translate(1059 798)" fill="#ab4de6"/>
+      <rect id="Retângulo_15" data-name="Retângulo 15" width="235" height="36" rx="16" transform="translate(1059 849)" fill="#fff"/>
+      <path id="Polígono_1" data-name="Polígono 1" d="M19,0,38,33H0Z" transform="translate(1339.5 847.5) rotate(90)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

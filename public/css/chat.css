@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+}
+
+html, body { 
+    background-color: rgb(90, 90, 90);
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.container { 
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+aside{
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    width: 75px;
+    display: flex;
+    flex-direction: column;
+}
+
+aside .user-information p {
+    display: none;
+}
+
+aside .foreign-user p {
+    display: none;
+}
+
+.open {
+    width: 300px;
+}
+
+.open .user-information p {
+    display: block;
+}
+
+.open .foreign-user p {
+    display: block;
+}
+
+.open .users-list {
+    align-items: flex-start;
+}
+
+.user-information {
+    width: 100%;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.user-photo-wrapper {
+    background-color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-photo-wrapper img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.user-information p{
+    font-size: 25px;
+    color: black;
+    margin-left: 10px;
+    display: none;
+}
+
+.users-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.foreign-user {
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    margin-bottom: 12px;
+}
+
+.foreign-user-photo-wrapper {
+    background-color: white;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.foreign-user-photo-wrapper img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.foreign-user p{
+    color: black;
+    font-size: 20px;
+    display: none;
+    margin-left: 10px;
+}
+
+main {
+    background-color: #C264FE;
+    height: 100%;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.chatroom-header {
+    width: 100%;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #AB4DE6;
+}
+
+.chatroom-header p{
+    color: white;
+    font-size: 40px;
+}
+
+.chatroom-header svg{
+    fill: white;
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+    display: none;
+}
+
+.chat-area {
+    width: 100%;
+    flex-grow: 1;
+    padding: 0.5em 20px;
+    overflow-y: auto;
+}
+
+.message {
+    color: white;
+    font-size: 14px;
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.alert {
+    margin: auto;
+    background: gray;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+.local {
+    justify-content: flex-end;
+    color: black;
+}
+
+.foreign-baloon {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #AB4DE6;
+}
+
+.foreign-username {
+    margin-bottom: 3px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.foreign-message {
+    font-size: 15px;
+}
+
+.local-baloon {
+    background-color:#fff;
+    padding: 10px;
+    border-radius: 10px;
+    align-self: flex-end;
+}
+
+.local-baloon {
+    font-size: 15px;
+}
+
+.write-space-wrapper {
+    width: 100%;
+    padding: 1em 1em;
+    display: flex;
+    align-items: center;
+    background-color: #AB4DE6;
+}
+
+.write-space-wrapper form{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.write-space-wrapper form input{
+    border: 0;
+    border-radius: 25px;
+    font-size: 15px;
+    width: 100%;
+    height: 35px;
+    padding: 0 15px;
+}
+
+.write-space-wrapper form input:focus{
+    outline: none;
+}
+
+.write-space-wrapper form button{
+    border: 0;
+    background: none;
+    margin-left: 1.5em;
+}
+
+.write-space-wrapper form button:hover{
+    cursor: pointer;
+}
+
+.write-space-wrapper form button img{
+    width: 25px;
+    height: 25px;
+}
+
+@media only screen and (max-width: 1024px) {
+    aside {
+        width: 300px;
+        position: absolute;
+        transform: translateX(-100%);
+    }
+
+    aside .user-information p {
+        display: block;
+    }
+
+    .users-list {
+        align-items: flex-start;
+    }
+
+    .open {
+        transform: none;
+        box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.46);
+    }
+    
+    aside .foreign-user p {
+        display: block;
+    }
+
+    main {
+        width: 100%;
+    }
+
+    .chatroom-header svg {
+        display: block;
+    }
+  }

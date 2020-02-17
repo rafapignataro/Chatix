@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Chat 2.0</title>
+    <link rel="stylesheet" href="css/chat.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.dev.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+</head>
+<body>
+    <div class="container">
+        <aside id="sidebar">
+            <div class="user-information">
+                <div class="user-photo-wrapper">
+                    <img src="img/user-photos/placeholder.jpg" alt="your-photo!">
+                </div>
+                <p><%= username %></p>
+            </div>
+            <div class="users-list"></div>
+        </aside>
+        <main id="chat">
+            <div class="chatroom-header">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+                <p>CHAT v2.0</p>
+            </div>
+            <div class="chat-area"></div>
+            <div class="write-space-wrapper">
+                <form id="send-message-form">
+                    <input type="text" id="messageContent" autocomplete="off">
+                    <button type="submit">
+                        <img src="img/Triangle.svg" alt="">                          
+                    </button>
+                </form>
+            </div>
+        </main>
+    </div>
+    <script type="text/javascript">
+        const socket = io('http://localhost:3000');
+        const username = '<%= username %>';
+
+        socket.emit('userLogged', username);
+
+        socket.on('newUser', data => renderNewUser(data));
+        socket.on('userDeslogged', data => renderUserLogout(data));
+
+        function scrollBottom() {
+			const chat = $('.chat-area');
+			chat.scrollTop(chat[0].scrollHeight);
+        }
+        
+        function renderNewUser(data){
+            $('.chat-area').append(`
+                <div class="message">
+                    <div class="alert">
+                        <p><strong>${data}</strong> entrou do chat!</p>
+                    </div>
+                </div>
+            `);
+            scrollBottom();
+        }
+
+        function renderUserLogout(data){
+            $('.chat-area').append(`
+                <div class="message">
+                    <div class="alert">
+                        <p><strong>${data}</strong> saiu do chat!</p>
+                    </div>
+                </div>
+            `);
+            scrollBottom();
+        }
+
+        function renderMessage(message){
+            $('.chat-area').append(`
+                <div class="message local">
+                    <div class="local-baloon">
+                        <p class="local-message">${message.content}</p>
+                    </div>
+                </div>
+            `);
+            scrollBottom();
+        };
+
+        function renderForeignMessage(message){
+            $('.chat-area').append(`
+                <div class="message">
+                    <div class="foreign-baloon">
+                        <p class="foreign-username">${message.username}</p>
+                        <p class="foreign-message">${message.content}</p>
+                    </div>
+                </div>
+            `);
+            scrollBottom();
+        }
+
+        socket.on('newMessage', message => {
+            renderForeignMessage(message);
+        });
+
+        $('#send-message-form').submit(function(event){
+            event.preventDefault();
+
+            const message = $('#messageContent').val();
+
+            if(message.length){
+
+                const messageObj = {
+                    username,
+                    content: message
+                };
+
+                renderMessage(messageObj);
+                $('#messageContent').val('');
+                socket.emit('sendMessage', messageObj);
+            }else{
+                alert('Escreva algo!');
+            }
+        })
+    </script>
+    <script type="text/javascript">
+        const sidebar = $('#sidebar');
+        const menu_button = $('.chatroom-header svg');
+        const chat = $('#chat');
+        const user_name = $('.user-information p');
+        let open = false;
+
+        sidebar.click(function(){
+            if(!open){
+                sidebar.addClass('open');
+                open = true;
+            }else {
+                sidebar.removeClass('open');
+                open = false;
+            }
+        });
+
+        menu_button.click(function(){
+            if(!open){
+                sidebar.addClass('open');
+                open = true;
+            }else {
+                sidebar.removeClass('open');
+                open = false;
+            }
+        })
+    </script>
+</body>
+</html>
