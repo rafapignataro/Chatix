@@ -2,9 +2,9 @@
   "name": "chat-2.0",
   "version": "1.0.0",
   "description": "Second version of my chat.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node index"
+    "start": "node app"
   },
   "keywords": [
     "Chat",
