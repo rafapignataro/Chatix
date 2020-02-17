@@ -4,7 +4,7 @@
   "description": "Second version of my chat.",
   "main": "index.js",
   "scripts": {
-    "start": "node app"
+    "start": "node index"
   },
   "keywords": [
     "Chat",
