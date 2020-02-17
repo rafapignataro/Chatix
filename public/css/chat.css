@@ -26,6 +26,7 @@ aside{
     width: 75px;
     display: flex;
     flex-direction: column;
+    transition: all ease 0.25;
 }
 
 aside .user-information p {
@@ -34,7 +35,6 @@ aside .user-information p {
 
 aside .foreign-user p {
     display: none;
-    transition: all ease 0.25;
 }
 
 .open {
