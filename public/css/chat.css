@@ -34,6 +34,7 @@ aside .user-information p {
 
 aside .foreign-user p {
     display: none;
+    transition: all ease 0.25;
 }
 
 .open {
