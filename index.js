@@ -1,17 +1,12 @@
 const express = require('express');
-const session = require('express-session');
+const cookierParser = require('cookie-parser')
 const path = require('path');
 
 const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 
-app.use(session({
-    secret: 'teste',
-    resave: true,
-    saveUninitialized: true
-}));
-
+app.use(cookierParser('abcdef-12345'))
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
@@ -22,28 +17,30 @@ app.use('/home', (req, res) =>{
 });
 
 app.use('/chat', (req, res) =>{
-    const { name } = req.session;
-    if(name){
-        res.render('chat', {username: name});
+    const { user } = req.cookies;
+
+    if(user){
+        res.render('chat', {user: user});
     }else {
         res.render('Login');
-    } 
+    }
 });
 
 app.post('/login', (req,res) => {
     const { name } = req.body;
-    req.session.name = name;
+    res.cookie('user', name, { maxAge: 900000, httpOnly: true });
+    res.redirect('/chat');
     res.end('done');
 });
 
 app.get('/logout', (req,res) => {
-    req.session.destroy(function(err){
-        if(err) {
-            res.negotiate(err);
-        }else {
-            res.redirect('/chat');
-        }
-    })
+    // req.session.destroy(function(err){
+    //     if(err) {
+    //         res.negotiate(err);
+    //     }else {
+    //         res.redirect('/chat');
+    //     }
+    // })
 });
 
 io.on('connection', socket => {

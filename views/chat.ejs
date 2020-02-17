@@ -15,7 +15,7 @@
                 <div class="user-photo-wrapper">
                     <img src="img/user-photos/placeholder.jpg" alt="your-photo!">
                 </div>
-                <p><%= username %></p>
+                <p><%= user %></p>
             </div>
             <div class="users-list"></div>
         </aside>
@@ -37,7 +37,7 @@
     </div>
     <script type="text/javascript">
         const socket = io('http://localhost:3000');
-        const username = '<%= username %>';
+        const username = '<%= user %>';
 
         socket.emit('userLogged', username);
 
