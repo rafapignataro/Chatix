@@ -28,7 +28,7 @@ app.use('/chat', (req, res) =>{
 
 app.post('/login', (req,res) => {
     const { name } = req.body;
-    res.cookie('user', name, { maxAge: 900000, httpOnly: true });
+    res.cookie('user', name, { maxAge: 31556952, httpOnly: true });
     res.redirect('/chat');
     res.end('done');
 });
