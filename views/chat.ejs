@@ -36,7 +36,7 @@
         </main>
     </div>
     <script type="text/javascript">
-        const socket = io('http://10.10.147.118:3000');
+        const socket = io('http://localhost:3000');
         const username = '<%= user %>';
 
         socket.emit('userLogged', username);
