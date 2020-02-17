@@ -12,7 +12,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(session({
-    secret: 'teste'
+    secret: 'teste',
+    resave: true,
+    saveUninitialized: true
 }));
 
 app.use('/home', (req, res) =>{
