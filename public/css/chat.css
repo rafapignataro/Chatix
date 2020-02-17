@@ -26,7 +26,7 @@ aside{
     width: 75px;
     display: flex;
     flex-direction: column;
-    transition: all ease 0.25;
+    transition: all ease 0.25s;
 }
 
 aside .user-information p {
