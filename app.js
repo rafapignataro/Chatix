@@ -1,8 +1,10 @@
 const express = require('express');
 const cookierParser = require('cookie-parser')
 const path = require('path');
+const routes = require('./routes');
 
 const app = express();
+
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 
@@ -11,38 +13,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
-app.use('/home', (req, res) =>{
-    res.render('home');
-});
-
-app.use('/chat', (req, res) =>{
-    const { user } = req.cookies;
-
-    if(user){
-        res.render('chat', {user: user});
-    }else {
-        res.render('Login');
-    }
-});
-
-app.post('/login', (req,res) => {
-    const { name } = req.body;
-    const expireDate = new Date(Number(new Date()) + 315360000000); 
-    res.cookie('user', name, { maxAge: expireDate, httpOnly: true });
-    res.redirect('/chat');
-    res.end('done');
-});
-
-app.get('/logout', (req,res) => {
-    // req.session.destroy(function(err){
-    //     if(err) {
-    //         res.negotiate(err);
-    //     }else {
-    //         res.redirect('/chat');
-    //     }
-    // })
-});
+app.use(routes);
 
 io.on('connection', socket => {
     let username;
@@ -62,6 +33,5 @@ io.on('connection', socket => {
 });
 
 server.listen(process.env.PORT || 3000, process.env.IP, function () {
-    var addr = server.address();
-    console.log("Server on em http://", addr.address + ":" + addr.port);
+    console.log('_online_')
 });
