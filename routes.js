@@ -1,11 +1,11 @@
 const express = require('express');
 const routes = express.Router();
 
-routes.use('/home', (req, res) =>{
+routes.get('/', (req, res) =>{
     res.render('home');
 });
 
-routes.use('/chat', (req, res) =>{
+routes.get('/chat', (req, res) =>{
     const { user } = req.cookies;
 
     if(user){
