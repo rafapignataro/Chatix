@@ -57,8 +57,12 @@ button:hover {
     background-color: rgb(154, 68, 207);
 }
 
-img {
+#down-img {
     position: absolute;
     bottom: 0;
-    width: 100%;
+}
+
+#up-img {
+    position: absolute;
+    top: 0;
 }
