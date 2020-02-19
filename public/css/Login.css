@@ -13,50 +13,52 @@ body, html {
 }
 
 body {
-    background-color: #C264FE;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-}
-
-h1 {
-    color: white;
-    margin-bottom: 10px;
-    font-size: 25px
+    align-items: center;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    padding: 1.5em;
-    background: #AB4DE6;
-    border-radius: 4px;
-    width: 200px;
+}
+
+h1 {
+    font-size: 40px;
+    line-height: 1em;
 }
 
 input {
-    margin-bottom: 25px;
     border: 0;
-    border-radius: 10px;
-    padding: 5px;
+    border-bottom: 1px solid black;
+    padding: 1px 5px;
+    font-size: 20px;
+    margin: 15px 0;
+}
+
+input:focus {
+    outline: none;
+}
+
+input::placeholder {
+    font-size: 15px;
 }
 
 button {
+    background-color: #AB4DE6;
     border: 0;
-    background: white;
-    color: black;
-    border-radius: 3px;
-    width: 50%;
-    margin: auto;
-    padding: 5px;
-    font-size: 16px;
+    color: #fff;
+    border-radius: 8px;
+    padding: 1em;
 }
 
-@media only screen and (max-width: 1024px) {
-    .container {
-        width: 100%;
-        height: 100%;
-    }
+button:hover {
+    cursor: pointer;
+    background-color: rgb(154, 68, 207);
 }
 
+img {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
