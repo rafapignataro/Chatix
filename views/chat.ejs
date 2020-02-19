@@ -18,6 +18,9 @@
                 <p><%= user %></p>
             </div>
             <div class="users-list"></div>
+            <div class="logout-wrapper">
+                <button id="logout-button">SAIR</button>
+            </div>
         </aside>
         <main id="chat">
             <div class="chatroom-header">
@@ -124,6 +127,18 @@
         const chat = $('#chat');
         const user_name = $('.user-information p');
         let open = false;
+
+        const logoutButton = $('#logout-button');
+        logoutButton.click(async function(event){
+            event.preventDefault();
+
+            fetch('/logout')
+            .then(response => {
+                if (response.ok)
+                    window.location.href = '/chat';
+            })
+            .catch(err => console.error(err));
+        })
 
         sidebar.click(function(){
             if(!open){

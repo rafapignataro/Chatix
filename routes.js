@@ -24,13 +24,8 @@ routes.post('/login', (req,res) => {
 });
 
 routes.get('/logout', (req,res) => {
-    // req.session.destroy(function(err){
-    //     if(err) {
-    //         res.negotiate(err);
-    //     }else {
-    //         res.redirect('/chat');
-    //     }
-    // })
+    res.clearCookie('user');
+    res.end();
 });
 
 module.exports = routes;
