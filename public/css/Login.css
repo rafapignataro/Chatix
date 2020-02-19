@@ -35,7 +35,7 @@ input {
     border-bottom: 1px solid black;
     padding: 1px 5px;
     font-size: 20px;
-    margin: 15px 0;
+    margin: 18px 0;
 }
 
 input:focus {
@@ -50,8 +50,9 @@ button {
     background-color: #AB4DE6;
     border: 0;
     color: #fff;
-    border-radius: 8px;
-    padding: 1em;
+    border-radius: 25px;
+    padding: 0.6em;
+    font-size: 18px;
 }
 
 button:hover {
