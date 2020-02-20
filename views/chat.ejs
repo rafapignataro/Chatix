@@ -39,8 +39,9 @@
             </div>
         </main>
     </div>
+    <script src="moment.min.js"></script>
     <script type="text/javascript">
-        const socket = io.connect('http://chatix.com.br', { query: 'name=<%= user %>'});
+        const socket = io.connect('http://192.168.100.10:3000', { query: 'name=<%= user %>'});
         const username = '<%= user %>';
 
         socket.on('directConnection', users => {
@@ -109,6 +110,7 @@
             $('.chat-area').append(`
                 <div class="message local">
                     <div class="local-baloon">
+                        <p class="local-message-time">${moment().format("hh:mma")}</p>
                         <p class="local-message">${message.content}</p>
                     </div>
                 </div>
@@ -120,8 +122,11 @@
             $('.chat-area').append(`
                 <div class="message">
                     <div class="foreign-baloon">
+                    <div>
                         <p class="foreign-username">${message.username}</p>
-                        <p class="foreign-message">${message.content}</p>
+                        <p class="foreign-message">${message.content}</p>            
+                    </div>
+                    <p class="foreign-time">${message.time}</p>
                     </div>
                 </div>
             `);
@@ -137,7 +142,8 @@
 
                 const messageObj = {
                     username,
-                    content: message
+                    content: message,
+                    time: moment().format("hh:mma")
                 };
 
                 renderMessage(messageObj);

@@ -44,6 +44,6 @@ io.on('connection', socket => {
 
 
 
-server.listen(process.env.PORT || 3000, process.env.IP, function () {
+server.listen(process.env.PORT || 3000, '192.168.100.10', function () {
     console.log('servern on...')
 });
