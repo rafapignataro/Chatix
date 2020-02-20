@@ -40,7 +40,7 @@
         </main>
     </div>
     <script type="text/javascript">
-        const socket = io.connect('http://192.168.100.10:3000', { query: 'name=<%= user %>'});
+        const socket = io.connect('http://chatix.com.br', { query: 'name=<%= user %>'});
         const username = '<%= user %>';
 
         socket.on('directConnection', users => {
