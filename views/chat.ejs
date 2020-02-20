@@ -17,7 +17,8 @@
                 </div>
                 <p><%= user %></p>
             </div>
-            <div class="users-list"></div>
+            <div class="users-list">
+            </div>
             <div class="logout-wrapper">
                 <button id="logout-button">SAIR</button>
             </div>
@@ -25,7 +26,7 @@
         <main id="chat">
             <div class="chatroom-header">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
-                <p>CHAT v2.0</p>
+                <p>Pessoas: <%= users.length %></p>
             </div>
             <div class="chat-area"></div>
             <div class="write-space-wrapper">
@@ -46,20 +47,47 @@
 
         socket.on('newUser', data => renderNewUser(data));
         socket.on('userDeslogged', data => renderUserLogout(data));
+        socket.on('localConnection', data => {
+            renderUsersCounter(data.usersCounter);
+            renderUsersList(data.users)
+        });
 
         function scrollBottom() {
 			const chat = $('.chat-area');
 			chat.scrollTop(chat[0].scrollHeight);
+        }
+
+        function renderUsersCounter(counter) {
+            $('.chatroom-header p').text('Pessoas: ' + counter);
+        }
+
+        function renderUsersList(list){
+            $('.users-list').empty();
+            
+            for(user in list){
+                if(user != username){
+                    $('.users-list').append(`
+                        <div class="foreign-user">
+                            <div class="foreign-user-photo-wrapper">
+                                <img src="img/user-photos/placeholder.jpg" alt="">
+                            </div>
+                            <p>${user}</p>
+                        </div>
+                    `)
+                }
+            }
         }
         
         function renderNewUser(data){
             $('.chat-area').append(`
                 <div class="message">
                     <div class="alert">
-                        <p><strong>${data}</strong> entrou do chat!</p>
+                        <p><strong>${data.name}</strong> entrou do chat!</p>
                     </div>
                 </div>
             `);
+            renderUsersCounter(data.users.length);
+            renderUsersList(data.users.data);
             scrollBottom();
         }
 
@@ -67,10 +95,12 @@
             $('.chat-area').append(`
                 <div class="message">
                     <div class="alert">
-                        <p><strong>${data}</strong> saiu do chat!</p>
+                        <p><strong>${data.name}</strong> saiu do chat!</p>
                     </div>
                 </div>
             `);
+            renderUsersCounter(data.users.length);
+            renderUsersList(data.users.data);
             scrollBottom();
         }
 

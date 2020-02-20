@@ -2,6 +2,7 @@ const express = require('express');
 const cookierParser = require('cookie-parser')
 const path = require('path');
 const routes = require('./routes');
+const users = require('./users');
 
 const app = express();
 
@@ -18,9 +19,14 @@ app.use(routes);
 io.on('connection', socket => {
     let username;
 
+    socket.emit('localConnection', {usersCounter: io.engine.clientsCount, users: users.data});
     socket.on('userLogged', data => {
         username = data;
-        socket.broadcast.emit('newUser', data);
+        users.data[username] = {'socketId': socket.id};
+        users.length = io.engine.clientsCount;
+        console.log(users.data)
+        console.log(users.length);
+        socket.broadcast.emit('newUser', {name: username, users: users});
     });
 
     socket.on('sendMessage', data => {
@@ -28,10 +34,16 @@ io.on('connection', socket => {
     });
 
     socket.on('disconnect', function() {
-        socket.broadcast.emit('userDeslogged', username);
+        delete users.data[username];
+        users.length = io.engine.clientsCount;
+        console.log(users.data);
+        console.log(users.length);
+        socket.broadcast.emit('userDeslogged', {name: username, users: users});
 	});
 });
 
+
+
 server.listen(process.env.PORT || 3000, process.env.IP, function () {
-    console.log('_online_')
+    console.log('servern on...')
 });

@@ -1,5 +1,7 @@
 const express = require('express');
+const users = require('./users');
 const routes = express.Router();
+
 
 routes.get('', (req, res) =>{
     res.render('home');
@@ -9,7 +11,7 @@ routes.get('/chat', (req, res) =>{
     const { user } = req.cookies;
 
     if(user){
-        res.render('chat', {user: user});
+        res.render('chat', {user: user, users: users});
     }else {
         res.render('Login');
     }
