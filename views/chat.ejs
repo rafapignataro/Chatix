@@ -25,8 +25,9 @@
         </aside>
         <main id="chat">
             <div class="chatroom-header">
-                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+                <svg id="sidemenu-button" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
                 <p>CHATIX.COM.BR</p>
+                <svg id="options-button" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
             </div>
             <div class="chat-area"></div>
             <div class="write-space-wrapper">
@@ -157,7 +158,7 @@
     </script>
     <script type="text/javascript">
         const sidebar = $('#sidebar');
-        const menu_button = $('.chatroom-header svg');
+        const menu_button = $('#sidemenu-button');
         const chat = $('#chat');
         const user_name = $('.user-information p');
         let open = false;
