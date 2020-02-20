@@ -71,7 +71,6 @@ input[type=radio]{
     opacity: 0;
 }
 
-
 input[type=radio] + img {
     cursor: pointer;
     height: 100%;
@@ -108,4 +107,27 @@ button:hover {
     position: absolute;
     top: 0;
     z-index: -1;
+}
+
+/* width */
+::-webkit-scrollbar {
+    height: 10px; 
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+    background: #ddd;
+    border-radius: 25px;
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background:#C264FE;
+    border-radius: 25px;
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #AB4DE6;
+    cursor: pointer;
 }
