@@ -14,18 +14,39 @@
     <form id="sendNameForm">
         <h1>Bem vindo!</h1>
         <input id="name" type="text" maxlength="12" placeholder="Seu melhor nome" autocomplete="off">
+        <div class="avatar-wrapper">
+            <p>Escolha o avatar que mais gostar!</p>
+            <div class="radio-wrapper">
+                <label>
+                    <input type="radio" id="avatar_01" name="avatar" value="avatar_01" checked>
+                    <img src="img/user-photos/Avatar_01.png" alt="">
+                </label>
+                <label class="avatar-img-wrapper">
+                    <input type="radio" id="avatar_02" name="avatar" value="avatar_02">
+                    <img src="img/user-photos/Avatar_02.png" alt="">
+                </label>
+                <label class="avatar-img-wrapper">
+                    <input type="radio" id="avatar_08" name="avatar" value="Avatar_06">
+                    <img src="img/user-photos/Avatar_06.png" alt="">
+                </label>
+                <label class="avatar-img-wrapper">
+                    <input type="radio" id="avatar_08" name="avatar" value="Avatar_08">
+                    <img src="img/user-photos/Avatar_08.png" alt="">
+                </label>
+            </div>
+        </div>
         <button type="submit">ENTRAR</button>
     </form>
     <script type="text/javascript">
         $('#sendNameForm').submit(function(event){
             event.preventDefault();
-
+            
             fetch('/login', {
                 method: 'POST',
                 headers: {
                 'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({name: $('#name').val()})
+                body: JSON.stringify({name: $('#name').val(), avatar: $("input[type=radio]:checked").val()})
             })
             .then(data => {
                 window.location.href = '/chat';

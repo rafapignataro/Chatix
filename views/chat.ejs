@@ -13,7 +13,7 @@
         <aside id="sidebar">
             <div class="user-information">
                 <div class="user-photo-wrapper">
-                    <img src="img/user-photos/placeholder.jpg" alt="your-photo!">
+                    <img src="img/user-photos/<%= avatar %>.png" alt="your-photo!">
                 </div>
                 <p><%= user %></p>
             </div>
@@ -26,7 +26,7 @@
         <main id="chat">
             <div class="chatroom-header">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
-                <p>Pessoas: <%= users.length %></p>
+                <p>CHATIX.COM.BR</p>
             </div>
             <div class="chat-area"></div>
             <div class="write-space-wrapper">
@@ -41,14 +41,15 @@
     </div>
     <script src="moment.min.js"></script>
     <script type="text/javascript">
-        const socket = io.connect('http://192.168.100.10:3000', { query: 'name=<%= user %>'});
+        const socket = io.connect('http://chatix.com.br', { query: 'name=<%= user %>&avatar=<%= avatar %>'});
         const username = '<%= user %>';
+        const avatar = '<%= avatar %>';
 
         socket.on('directConnection', users => {
-            renderUsersCounter(users.usersCounter);
+            // renderUsersCounter(users.usersCounter);
             renderUsersList(users.users)
         });
-        socket.on('newUser', data => renderNewUser(data));
+        socket.on('newUser', user => renderNewUser(user));
         socket.on('userDeslogged', data => renderUserLogout(data));
         socket.on('newMessage', message => {
             renderForeignMessage(message);
@@ -60,7 +61,7 @@
         }
 
         function renderUsersCounter(counter) {
-            $('.chatroom-header p').text('Pessoas: ' + counter);
+            $('.chatroom-header p').text('Online: ' + counter);
         }
 
         function renderUsersList(list){
@@ -71,7 +72,7 @@
                     $('.users-list').append(`
                         <div class="foreign-user">
                             <div class="foreign-user-photo-wrapper">
-                                <img src="img/user-photos/placeholder.jpg" alt="">
+                                <img src="img/user-photos/${list[user].avatar}.png" alt="">
                             </div>
                             <p>${user}</p>
                         </div>
@@ -80,16 +81,16 @@
             }
         }
         
-        function renderNewUser(data){
+        function renderNewUser(user){
             $('.chat-area').append(`
                 <div class="message">
                     <div class="alert">
-                        <p><strong>${data.name}</strong> entrou do chat!</p>
+                        <p><strong>${user.name}</strong> entrou do chat!</p>
                     </div>
                 </div>
             `);
-            renderUsersCounter(data.users.length);
-            renderUsersList(data.users.data);
+            // renderUsersCounter(data.users.length);
+            renderUsersList(user.users.data);
             scrollBottom();
         }
 
@@ -101,7 +102,7 @@
                     </div>
                 </div>
             `);
-            renderUsersCounter(data.users.length);
+            // renderUsersCounter(data.users.length);
             renderUsersList(data.users.data);
             scrollBottom();
         }

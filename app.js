@@ -17,10 +17,10 @@ app.set('view engine', 'ejs');
 app.use(routes);
 
 io.on('connection', socket => {
-
     const username = socket.request._query.name;
+    const avatar = socket.request._query.avatar;
 
-    users.data[username] = {'socketId': socket.id};
+    users.data[username] = {'avatar': avatar, 'socketId': socket.id};
     users.length = io.engine.clientsCount;
     socket.broadcast.emit('newUser', {name: username, users: users});
 
@@ -44,6 +44,6 @@ io.on('connection', socket => {
 
 
 
-server.listen(process.env.PORT || 3000, '192.168.100.10', function () {
+server.listen(process.env.PORT || 3000, process.env.IP, function () {
     console.log('servern on...')
 });

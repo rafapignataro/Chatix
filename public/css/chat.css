@@ -162,13 +162,14 @@ main {
     height: 75px;
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 10px;
     background-color: #AB4DE6;
 }
 
 .chatroom-header p{
-    color: white;
-    font-size: 40px;
+    color: #00000021;
+    font-size: 25px;
 }
 
 .chatroom-header svg{
@@ -321,6 +322,8 @@ main {
 
     .chatroom-header svg {
         display: block;
+        position: absolute;
+        left: 10px;
     }
 
     .logout-wrapper {
