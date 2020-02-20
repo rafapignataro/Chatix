@@ -23,6 +23,7 @@ body {
 form {
     display: flex;
     flex-direction: column;
+    width: 300px;
 }
 
 h1 {
@@ -55,6 +56,7 @@ h1 {
     justify-content: space-between;
     margin: 12px 0;
     padding: 5px;
+    overflow-y: hidden;
 }
 
 .radio-wrapper label{
@@ -67,20 +69,17 @@ h1 {
 input[type=radio]{
     position: absolute;
     opacity: 0;
-    width: 50%;
-    height: 50%;
 }
 
 
-[type=radio] + img {
+input[type=radio] + img {
     cursor: pointer;
-    width: 100%;
     height: 100%;
     border-radius: 50%;
     border: 3px solid #fff;
 }
 
-[type=radio]:checked + img {
+input[type=radio]:checked + img {
     border: 3px solid #AB4DE6;
     border-radius: 50%;
 }
