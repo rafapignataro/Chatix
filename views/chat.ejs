@@ -40,18 +40,19 @@
         </main>
     </div>
     <script type="text/javascript">
-        const socket = io('http://chatix.com.br');
+        const socket = io.connect('http://192.168.100.10:3000', { query: 'name=<%= user %>'});
         const username = '<%= user %>';
 
-        socket.emit('userLogged', username);
-
+        socket.on('directConnection', users => {
+            renderUsersCounter(users.usersCounter);
+            renderUsersList(users.users)
+        });
         socket.on('newUser', data => renderNewUser(data));
         socket.on('userDeslogged', data => renderUserLogout(data));
-        socket.on('localConnection', data => {
-            renderUsersCounter(data.usersCounter);
-            renderUsersList(data.users)
+        socket.on('newMessage', message => {
+            renderForeignMessage(message);
         });
-
+        
         function scrollBottom() {
 			const chat = $('.chat-area');
 			chat.scrollTop(chat[0].scrollHeight);
@@ -126,10 +127,6 @@
             `);
             scrollBottom();
         }
-
-        socket.on('newMessage', message => {
-            renderForeignMessage(message);
-        });
 
         $('#send-message-form').submit(function(event){
             event.preventDefault();

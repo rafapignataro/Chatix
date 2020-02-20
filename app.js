@@ -17,17 +17,17 @@ app.set('view engine', 'ejs');
 app.use(routes);
 
 io.on('connection', socket => {
-    let username;
 
-    socket.emit('localConnection', {usersCounter: io.engine.clientsCount, users: users.data});
-    socket.on('userLogged', data => {
-        username = data;
-        users.data[username] = {'socketId': socket.id};
-        users.length = io.engine.clientsCount;
-        console.log(users.data)
-        console.log(users.length);
-        socket.broadcast.emit('newUser', {name: username, users: users});
-    });
+    const username = socket.request._query.name;
+
+    users.data[username] = {'socketId': socket.id};
+    users.length = io.engine.clientsCount;
+    socket.broadcast.emit('newUser', {name: username, users: users});
+
+    console.log(users.data)
+    console.log(users.length);
+
+    socket.emit('directConnection', {usersCounter: io.engine.clientsCount, users: users.data});
 
     socket.on('sendMessage', data => {
         socket.broadcast.emit('newMessage', data);
