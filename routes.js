@@ -6,10 +6,6 @@ routes.get('/', (req, res) =>{
     res.render('home');
 });
 
-routes.get('/errorpage', (req,res) =>{
-    res.render('404');
-});
-
 routes.get('/chat', (req, res) =>{
     const { user, avatar } = req.cookies;
 
@@ -37,7 +33,7 @@ routes.get('/logout', (req,res) => {
 routes.use((req,res) => {
     res.type('text/plain');
     res.status(404);
-    res.send('404 error page');
+    res.render('404');
 });
 
 module.exports = routes;
