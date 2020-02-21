@@ -30,10 +30,9 @@ routes.get('/logout', (req,res) => {
     res.end();
 });
 
-routes.use((req,res) => {
-    res.type('text/plain');
-    res.status(404);
-    res.render('404');
+routes.get('/:diretorio', (req, res) => {
+    const { diretorio } = req.params;
+    res.render('404', {dir: diretorio})
 });
 
 module.exports = routes;
