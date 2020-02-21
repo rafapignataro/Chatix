@@ -2,9 +2,12 @@ const express = require('express');
 const users = require('./users');
 const routes = express.Router();
 
-
-routes.get('', (req, res) =>{
+routes.get('/', (req, res) =>{
     res.render('home');
+});
+
+routes.get('/errorpage', (req,res) =>{
+    res.render('404');
 });
 
 routes.get('/chat', (req, res) =>{
@@ -29,6 +32,12 @@ routes.post('/login', (req,res) => {
 routes.get('/logout', (req,res) => {
     res.clearCookie('user');
     res.end();
+});
+
+routes.use((req,res) => {
+    res.type('text/plain');
+    res.status(404);
+    res.send('404 error page');
 });
 
 module.exports = routes;
