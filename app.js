@@ -43,8 +43,6 @@ io.on('connection', socket => {
 	});
 });
 
-
-
 server.listen(process.env.PORT || 3000, process.env.IP, function () {
     console.log('servern on...')
 });
