@@ -17,6 +17,62 @@ html, body {
     width: 100%;
     height: 100%;
     display: flex;
+    position: relative;
+}
+
+.options-menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    background: #fff;
+    text-align: center;
+    z-index: 300;
+    transform: translateX(100%);
+    transition: all ease 0.25s;
+    box-shadow: -4px 4px 2px rgba(0,0,0,0.2);
+}
+
+.open-options-menu {
+    transform: translateX(0);
+}
+
+.options-menu-header {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.options-menu-header p{
+    font-weight: bold;
+}
+
+.options-menu ul{
+    list-style: none;
+    color: white;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.options-menu ul li{
+    background: #AB4DE6;
+    border-radius: 20px;
+    padding: 8px;
+    margin: 10px;
+}
+
+#logout-button:hover {
+    cursor: pointer;
+    background: #C264FE;
+}
+
+.options-menu svg:hover {
+    fill: black;
+    cursor: pointer;
 }
 
 aside{
@@ -34,24 +90,6 @@ aside .user-information p {
 
 aside .foreign-user p {
     display: none;
-}
-
-aside .logout-wrapper {
-    display: none;
-}
-
-aside .logout-wrapper button{
-    background: #C264FE;
-    border: 0;
-    padding: 0.8em;
-    font-size: 1em;
-    color: white;
-    border-radius: 8px;
-}
-
-aside .logout-wrapper button:hover{
-    cursor: pointer;
-    background-color: #AB4DE6;
 }
 
 .open {
@@ -186,6 +224,13 @@ main {
     height: 35px;
     position: absolute;
     right: 10px;
+}
+
+#options-button:hover {
+    fill: #ddd;
+    cursor: pointer;
+    transform: rotateZ(90deg);
+    transition: all ease 0.5s;
 }
 
 .chat-area {
