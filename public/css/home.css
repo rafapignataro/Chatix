@@ -3,94 +3,237 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: 'Roboto';
 }
 
-body, html {
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
+html {
+    font-size: 62.5%;
+    --primary-color: #AB4DE6;
+    --gray-text: #525252;
+    --header1: calc(2.5rem + 1vw);
+    --header2: calc(3.5rem + 1vw);
+    --header3: calc(3rem + 1vw);
+    --header4: calc(2.4rem + 1vw);
+    --text: calc(1.2rem + 1vw);
+    --card-text: calc(0.9rem + 1vw);
+    scroll-behavior: smooth;
 }
 
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    font-size: var(--header1);
+}
+
+li, 
+button, 
+label, 
+input, 
+p {
+    font-size: var(--text);
+}
+h2 {
+    font-size: var(--header2);
+}
+h3 {
+    font-size: var(--header3);
+}
+h4,
+h5 {
+    font-size: var(--header4);
+}
 a {
+    color: white;
     text-decoration: none;
-    color: black;
 }
 
-header {
+/* Primary Header and Nav */
+
+.main-head {
+    background-color: var(--primary-color);
+}
+
+nav {
+    width: 80%;
+    min-height: 10vh;
+    margin: auto;
+    padding: 2rem 0;
+    display: flex;
+    align-items: center;
+}
+
+#logo {
+    flex: 1 1 40rem;
+}
+
+.nav-links {
+    flex: 1 1 40rem;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#enter-link {
+    background: white;
+    color: var(--primary-color);
+    padding: 1rem 2rem;
+    border-radius: 3px;
+}
+
+/* Hero Section */
+
+.hero {
+    min-height: 70vh;
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.hero-head {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 40rem;
+    text-align: center;
+}
+
+.hero-head h2{
+    padding: 2rem 0;
+}
+
+.hero-head p{
+    color: rgb(70, 70, 70);
+    margin-bottom: 5rem;
+}
+
+.hero-head a {
+    background: var(--primary-color);
+    color: white;
+    padding: 2rem 8rem;
+    border-radius: 3px;
+    font-size: var(--text);
+}
+
+.hero-head a:hover {
+    background: rgb(173, 101, 218);
+}
+
+.hero-purplecurve {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    display: none;
+}
+
+/* About Section */
+
+#about {
+    background: var(--primary-color);
+    padding: 3rem;
+}
+
+.about-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.about-head p {
+    padding: 2rem 0;
+}
+
+.about-head ul{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 3em 8em;
-}
-
-ul {
-    display: flex;
-    align-items: center;
     list-style: none;
+    width: 8rem;
 }
 
-li {
-    font-size: 23px;
-    margin-right: 1em;
+.about-head img{
+    width: 25px;
+    height: 25px;
 }
 
-li svg {
-    width: 50px;
-    height: 50px;
+.about-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 5rem 0;
 }
 
-.account-wrapper {
-    font-size: 23px;
+.card {
+    background: white;
+    border-radius: 10px;
+    width: 30rem;
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.account-wrapper #enter-button {
-    margin-left: 1em;
-    padding: 0.3em;
-    border-radius: 3px;
-    border: 2px solid #AB4DE6;
-    color: #AB4DE6;
+.card:hover {
+    box-shadow: 0 10px 10px rgba(0,0,0,0.3);
 }
 
-main {
-    position: absolute;
-    top: 35%;
-    left: 10%;
+.card a {
+    color: black;
 }
 
-main h1 {
-    font-size: 3em;
+.card-image-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    flex-grow: 1;
 }
 
-main p {
-    font-size: 1.2em;
-    color: rgb(85, 85, 85);
+.card-image-wrapper img{
+    width: 15rem;
+    height: 15rem;
 }
 
-img {
-    position: absolute;
+.card-text {
+    padding: 3rem;
+    text-align: center;
+    flex-grow: 2;
 }
 
-#cellphone-img {
-    position: absolute;
-    top: 8%;
-    right: 15%;
-    z-index: 1;
-}
-
-#up-img {
-    position: absolute;
-    top: -3%;
-    right: 20%;
-    z-index: -1;
-}
-
-#down-img {
-    position: absolute;
-    bottom: -15%;
-    z-index: 2;
+.card-text p{
+    font-size: var(--text);
 }
 
 
 
+@media screen and (max-width: 900px) {
+    .hero-head {
+        text-align: center;
+        margin-left: 0;
+        padding: 0 2rem;
+    }
 
+    .card {
+        margin: 2rem 0;
+    }
+}
+
+@media screen and (min-width: 1500px){
+    html {
+        --header1: 3.5rem;
+        --header2: 5rem;
+        --header3: 4rem;
+        --header4: 3rem;
+        --text: 2.5rem;
+        --big: 6rem;
+        
+    }
+}

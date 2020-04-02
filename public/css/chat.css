@@ -345,7 +345,7 @@ main {
     height: 25px;
 }
 
-@media only screen and (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
     aside {
         width: 300px;
         position: absolute;
@@ -364,7 +364,7 @@ main {
         transform: none;
         box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.46);
     }
-    
+
     aside .foreign-user p {
         display: block;
     }
@@ -382,4 +382,5 @@ main {
     .logout-wrapper {
         display: flex;
     }
-  }
+}
+

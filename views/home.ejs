@@ -7,33 +7,68 @@
     <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
-    <img id="cellphone-img" src="img/Cellphone.svg" alt="">
-    <img id="up-img" src="img/Upper-Curve.svg" alt="">
-    <img id="down-img" src="img/Bottom-curve.svg" alt="">
-
-    <header>
+    <header class="main-head">
         <nav>
-            <ul>
-                <li>
-                    <a href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24"><g><rect fill="none" height="24" width="24"/></g><g><g><g><path d="M23,8c0,1.1-0.9,2-2,2c-0.18,0-0.35-0.02-0.51-0.07l-3.56,3.55C16.98,13.64,17,13.82,17,14c0,1.1-0.9,2-2,2s-2-0.9-2-2 c0-0.18,0.02-0.36,0.07-0.52l-2.55-2.55C10.36,10.98,10.18,11,10,11s-0.36-0.02-0.52-0.07l-4.55,4.56C4.98,15.65,5,15.82,5,16 c0,1.1-0.9,2-2,2s-2-0.9-2-2s0.9-2,2-2c0.18,0,0.35,0.02,0.51,0.07l4.56-4.55C8.02,9.36,8,9.18,8,9c0-1.1,0.9-2,2-2s2,0.9,2,2 c0,0.18-0.02,0.36-0.07,0.52l2.55,2.55C14.64,12.02,14.82,12,15,12s0.36,0.02,0.52,0.07l3.55-3.56C19.02,8.35,19,8.18,19,8 c0-1.1,0.9-2,2-2S23,6.9,23,8z"/></g></g></g></svg>
-                    </a>
-                </li>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Suporte</a></li>
+            <h1 id="logo"><a href="/">Chatix.</a></h1>
+            <ul class="nav-links">
+                <li><a id="enter-link" href="/chat">Entrar</a></li>
             </ul>
         </nav>
-        <div class="account-wrapper">
-            <a href="#">Criar conta</a>
-            <a id="enter-button" href="#">ENTRAR</a>
-        </div>
     </header>
     <main>
-        <h1>Descubra uma nova forma </br>
-            de interagir com o mundo.</h1>
-        <p>Com o chat 2.0 é possível se conectar com outras pessoas e assim,</br>
-            conhecer novas culturas, estilos de vida, e criar novos vínculos.</p>
+        <section class="hero">
+            <header class="hero-head">
+                <h2>Um chat aberto a todos</h2>
+                <p>O chatix foi desenvolvido como forma de estudo, e agora está liberado como um projeto <br> open source para ajudar outras pessoas.</p>
+                <a href="/chat">Entrar</a>
+            </header>
+            <img class="hero-purplecurve" src="img/Bottom-curve.svg" alt="">
+        </section>
+        <section id="about">
+            <div class="about-head">
+                <h2>Sobre</h2>
+                <p>Desenvolvido por Rafael Pignataro</p>
+                <ul>
+                    <li><a href="https://github.com/rafapignataro"><img src="img/github.svg" alt="Link perfil github"></a></li>
+                    <li><a href="https://www.linkedin.com/in/rafael-pignataro"><img src="img/linkedin.svg" alt="Link perfil linkedin"></a></li>
+                </ul>
+            </div>
+            <div class="about-cards">
+                <div class="card">
+                    <a href="https://github.com/rafapignataro/chatix">
+                        <div class="card-image-wrapper">
+                            <img src="img/github-logo.svg" alt="">
+                        </div>
+                        <div class="card-text">
+                            <p>Projeto disponível no github.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="https://nodejs.org/en/">
+                        <div class="card-image-wrapper">
+                            <img src="img/nodejs.svg" alt="">
+                        </div>
+                        <div class="card-text">
+                            <p>O backend do projeto foi desenvolvido com Node.js.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="https://socket.io/">
+                        <div class="card-image-wrapper">
+                            <img src="img/socket-io.svg" alt="">
+                        </div>
+                        <div class="card-text">
+                            <p>Por meio de websockets, o Chatix utiliza o Socket.io para realizar as mensagens em tempo real.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
+    <!-- <img id="cellphone-img" src="img/Cellphone.svg" alt="">
+    <img id="up-img" src="img/Upper-Curve.svg" alt="">
+    <img id="down-img" src="img/Bottom-curve.svg" alt=""> -->
 </body>
 </html>

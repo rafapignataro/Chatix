@@ -131,3 +131,9 @@ button:hover {
     background: #AB4DE6;
     cursor: pointer;
 }
+
+@media screen and (max-width: 450px) {
+    #down-img {
+        display: none;
+    }
+}
