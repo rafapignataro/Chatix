@@ -1,7 +1,7 @@
 <br />
 <p align="center">
   <a href="https://chatix.com.br">
-    <h1>Chatix</h1>
+    <h2>Chatix</h2>
   </a>
 
   <h3 align="center">Chat em tempo real</h3>
