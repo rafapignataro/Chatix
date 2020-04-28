@@ -2,7 +2,7 @@
 <a href="https://chatix.com.br">
   <h1>Chatix</h1>
 </a>
-<h3 align="center">Chat em tempo real | <a href="https://chatix.com.br">View Demo</a></h3>
+<h3>Chat em tempo real | <a href="https://chatix.com.br">View Demo</a></h3>
 <a href=""><img alt="Linkedin" src="https://img.shields.io/badge/-Linkedin-blue" /></a>
 </p>
 
