@@ -1,3 +1,4 @@
+<br />
 <p align="center">
   <a href="https://chatix.com.br">
     <h1>Chatix</h1>
