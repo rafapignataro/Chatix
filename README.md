@@ -35,8 +35,9 @@ npm install
 
 ### 3: Alterar algumas configurações
 - Abra o arquivo "chat" na pasta Views.
-- Altere o primeiro parametro da função connect para seu ipv4 da internet caso queira conectar no wifi, ou para rodar localmente
-digite "http://locahost:3000".
+- Altere o primeiro parametro da função connect:
+  - Para rodar no wifi. Ex: "192.168.1.100:3000".
+  - Para rodar local. Ex: "http://locahost:3000".
 ```sh
 const socket = io.connect('https://chatix.com.br', { query: 'name=<%= user %>&avatar=<%= avatar %>'});
 ```
@@ -56,4 +57,6 @@ Para rodar, ainda no cmd, no diretório do projeto, digite:
 npm start
 ```
 
-#### Agora é só acessá-lo via web: http://localhost:3000 caso rode local, senão no lugar de localhost digite seu IPV4!
+#### 5 Agora é só acessá-lo via web: 
+- http://localhost:3000 caso rode local
+- http://SEU-IPV4:3000 caso seja na rede
