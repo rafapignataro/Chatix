@@ -9,8 +9,51 @@
 Desenvolvi esse chat em tempo real como uma segunda versão do chat que fiz quando entrei na faculdade. Aprendi muita coisa desde lá e consegui evoluir ele muito bem. Não está finalizado totalmente, mas suas principais funções estão. Dessa forma, deixo o código dísponivel para inspirar e ajudar outras pessoas.
 
 ## Tecnologias
-- Back-end: Node.js | Express
+- Back-end: Node.js | Express | EJS
 - Front-end: HTML | CSS | Javascript
 - socket.io para troca de dados em tempo real
 
-## Como rodar?
+## :rocket: Rode no seu computador!
+
+### 1: Clone o repositorio
+
+```sh
+git clone https://github.com/rafapignataro/Chatix.git
+```
+
+### 2: Instale as dependências
+Com o cmd aberto, utilize cd para entrar no repositorio
+
+```sh
+cd Chatix
+```
+
+No projeto utilize npm install ou yarn install
+```sh
+npm install
+```
+
+### 3: Alterar algumas configurações
+- Abra o arquivo "chat" na pasta Views.
+- Altere o primeiro parametro da função connect para seu ipv4 da internet caso queira conectar no wifi, ou para rodar localmente
+digite "http://locahost:3000".
+```sh
+const socket = io.connect('https://chatix.com.br', { query: 'name=<%= user %>&avatar=<%= avatar %>'});
+```
+- Após isso no arquivo "chat", no local de "process.env.IP" coloque seu Ipv4 ou para rodar local, retire esse parametro
+
+```sh
+server.listen(process.env.PORT || 3000, process.env.IP, function () {
+    console.log('server on...')
+});
+```
+- Altere ele para as configurações do seu banco.
+
+### 4: Rode o projeto
+Para rodar, ainda no cmd, no diretório do projeto, digite:
+
+```sh
+npm start
+```
+
+#### Agora é só acessá-lo via web: http://localhost:3000 caso rode local, senão no lugar de localhost digite seu IPV4!
